@@ -1,4 +1,4 @@
-<h2><%= current_user.name %>'s Dashboard</h2>
+<h2><%= @user.name %>'s Dashboard</h2>
 
 <form action='<%= posts_path %>' method='post' enctype="multipart/form-data">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -13,8 +13,47 @@
 </form>
 
 <% @posts.each do |post| %>
-  <p><a href="<%= post_path post %>"><img src="<%= post.image.url(:medium) %>"></a></p>
+  <p>
+    <a href="<%= post_path post %>"><img src="<%= post.image.url(:medium) %>"></a>
+  </p>
   <p><%= post.content %></p>
+
+  <% if post.comments.first %>
+    <p>
+      <a href="<%= user_path post.comments.first.user %>">
+        <%= post.comments.first.user.name %>
+      </a> says:
+      <%= post.comments.first.content %>
+      <% if post.comments.first.user == current_user %>
+        <a href="<%= comment_path post.comments.first %>" data-method='delete'>Delete</a>
+      <% end %>
+    </p>
+  <% end %>
+
+  <% if post.comments.second %>
+    <p>
+      <a href="<%= user_path post.comments.second.user %>">
+        <%= post.comments.second.user.name %>
+      </a> says:
+      <%= post.comments.second.content %>
+      <% if post.comments.second.user == current_user %>
+        <a href="<%= comment_path post.comments.second %>" data-method='delete'>Delete</a>
+      <% end %>
+    </p>
+  <% end %>
+
+  <% if post.comments.third %>
+    <p>
+      <a href="<%= user_path post.comments.third.user %>">
+        <%= post.comments.third.user.name %>
+      </a> says:
+      <%= post.comments.third.content %>
+      <% if post.comments.third.user == current_user %>
+        <a href="<%= comment_path post.comments.third %>" data-method='delete'>Delete</a>
+      <% end %>
+    </p>
+  <% end %>
+
   <form action='<%= comments_path %>' method='post'>
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="hidden" name="comment[post_id]" value="<%= post.id %>">

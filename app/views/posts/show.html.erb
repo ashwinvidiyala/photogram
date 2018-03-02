@@ -4,6 +4,18 @@
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="comment[post_id]" value="<%= @post.id %>">
 
+  <% @comments.each do |comment| %>
+    <p>
+      <a href="<%= user_path comment.user %>">
+        <%= comment.user.name %>
+      </a> says:
+      <%= comment.content %>
+      <% if comment.user == current_user %>
+        <a href="<%= comment_path comment %>" data-method='delete'>Delete</a>
+      <% end %>
+    </p>
+  <% end %>
+
   <textarea name="comment[content]" rows="4" cols="47"></textarea>
   <input type="submit" value="Comment">
 </form>
