@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :require_login, only: [:register, :create]
+
   def register; end
 
   def index
@@ -12,9 +14,10 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
-
-    return redirect_to users_path if user.valid?
-
+    if user.valid?
+      session[:user_id] = user.id
+      return redirect_to users_path
+    end
     flash[:errors] = user.errors.full_messages
     redirect_back fallback_location: register_path
   end
