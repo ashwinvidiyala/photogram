@@ -5,7 +5,12 @@
     <a href='<%= user_path post.user %>'><%= post.user.name %></a>
   </p>
   <p><a href="<%= post_path post %>"><img src="<%= post.image.url(:medium) %>"></a></p>
-  <p><%= post.content %></p>
+  <p>
+    <%= post.content %>
+    <% if post.user == current_user %>
+      <a href="<%= post_path post %>" data-method='delete'>Delete Post</a>
+    <% end %>
+  </p>
 
   <% if post.comments.first %>
     <p>

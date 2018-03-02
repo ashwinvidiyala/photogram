@@ -8,7 +8,7 @@ root 'users#register'
  delete 'logout',      to: 'sessions#destroy', as: 'logout'
  resources :sessions,  only: [:create]
 
- resources :posts,     only: [:create, :show]
+ resources :posts,     only: [:create, :show, :destroy]
 
  resources :comments,  only: [:create, :destroy]
 

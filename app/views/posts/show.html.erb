@@ -1,5 +1,11 @@
 <p><img src="<%= @post.image.url(:medium) %>"></p>
-<p><%= @post.content %></p>
+<p>
+  <%= @post.content %>
+  <% if @post.user == current_user %>
+    <a href="<%= post_path @post %>" data-method='delete'>Delete Post</a>
+  <% end %>
+</p>
+
 <form action='<%= comments_path %>' method='post'>
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="comment[post_id]" value="<%= @post.id %>">
