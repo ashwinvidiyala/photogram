@@ -7,12 +7,19 @@
   <input type="file" name="post[image]">
 
   <label>Description</label>
-  <input type="text" name="post[description]">
+  <textarea name="post[content]" rows="4" cols="47"></textarea>
 
   <input type="submit" value="Upload">
 </form>
 
 <% @posts.each do |post| %>
-  <p><%= post.description %></p>
-  <img src="<%= post.image.url(:medium) %>" alt="<%= post.image.name %>">
+  <p><a href="<%= post_path post %>"><img src="<%= post.image.url(:medium) %>"></a></p>
+  <p><%= post.content %></p>
+  <form action='<%= comments_path %>' method='post'>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="comment[post_id]" value="<%= post.id %>">
+
+    <textarea name="comment[content]" rows="4" cols="47"></textarea>
+    <input type="submit" value="Comment">
+  </form>
 <% end %>

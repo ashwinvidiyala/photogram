@@ -1,9 +1,12 @@
 class PostsController < ApplicationController
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def create
    post = Post.create(post_params)
-   if post.valid?
-     return redirect_to user_path current_user
-   end
+
+   return redirect_to user_path current_user if post.valid?
 
    flash[:errors] = post.errors.full_messages
    redirect_back(fallback_location: "/users/#{current_user.id}")
@@ -13,6 +16,6 @@ class PostsController < ApplicationController
  private
 
  def post_params
-   params.require(:post).permit(:image, :description).merge(user: current_user)
+   params.require(:post).permit(:image, :content).merge(user: current_user)
  end
 end

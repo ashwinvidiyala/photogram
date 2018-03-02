@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def register; end
 
+  def index
+    @posts = Post.all
+  end
+
   def show
     @posts = User.find(params[:id]).posts
   end
@@ -11,7 +15,7 @@ class UsersController < ApplicationController
     return redirect_to users_path if user.valid?
 
     flash[:errors] = user.errors.full_messages
-    redirect_to register_path
+    redirect_back fallback_location: register_path
   end
 
   private
