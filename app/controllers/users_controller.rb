@@ -4,12 +4,14 @@ class UsersController < ApplicationController
   def register; end
 
   def index
-    @posts = Post.all
+    @posts = Post.eager_load(:user, :comments, :comments => :user)
+    # @posts = Post.all
+
   end
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.eager_load(:comments, :comments => :user)
   end
 
   def create

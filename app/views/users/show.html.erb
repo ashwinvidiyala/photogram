@@ -23,40 +23,18 @@
     <% end %>
   </p>
 
-  <% if post.comments.first %>
-    <p>
-      <a href="<%= user_path post.comments.first.user %>">
-        <%= post.comments.first.user.name %>
-      </a> says:
-      <%= post.comments.first.content %>
-      <% if post.comments.first.user == current_user %>
-        <a href="<%= comment_path post.comments.first %>" data-method='delete'>Delete</a>
-      <% end %>
-    </p>
-  <% end %>
-
-  <% if post.comments.second %>
-    <p>
-      <a href="<%= user_path post.comments.second.user %>">
-        <%= post.comments.second.user.name %>
-      </a> says:
-      <%= post.comments.second.content %>
-      <% if post.comments.second.user == current_user %>
-        <a href="<%= comment_path post.comments.second %>" data-method='delete'>Delete</a>
-      <% end %>
-    </p>
-  <% end %>
-
-  <% if post.comments.third %>
-    <p>
-      <a href="<%= user_path post.comments.third.user %>">
-        <%= post.comments.third.user.name %>
-      </a> says:
-      <%= post.comments.third.content %>
-      <% if post.comments.third.user == current_user %>
-        <a href="<%= comment_path post.comments.third %>" data-method='delete'>Delete</a>
-      <% end %>
-    </p>
+  <% if post.comments %>
+    <% post.comments.each do |comment| %>
+      <p>
+        <a href="<%= user_path comment.user %>">
+          <%= comment.user.name %>
+        </a> says:
+        <%= comment.content %>
+        <% if comment.user == current_user %>
+          <a href="<%= comment_path comment %>" data-method='delete'>Delete</a>
+        <% end %>
+      </p>
+    <% end %>
   <% end %>
 
   <form action='<%= comments_path %>' method='post'>
