@@ -13,3 +13,4 @@ Features:
 * Individual User Accounts
 * Image Uploading
 * Comment functionality
+* Eager Loading to optimize queries.
