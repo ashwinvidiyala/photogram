@@ -1,24 +1,11 @@
-# README
+# Photogram
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Photogram is an Instagram clone that has been built on Rails 5.
 
-Things you may want to cover:
+Features:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Login and Registration Validation
+* Login Authorization
+* Individual User Accounts
+* Image Uploading
+* Comment functionality
