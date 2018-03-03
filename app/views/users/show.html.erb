@@ -1,16 +1,18 @@
 <h2><%= @user.name %>'s Dashboard</h2>
 
-<form action='<%= posts_path %>' method='post' enctype="multipart/form-data">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<% if @user == current_user %>
+  <form action='<%= posts_path %>' method='post' enctype="multipart/form-data">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-  <label>Upload Image:</label>
-  <input type="file" name="post[image]">
+    <label>Upload Image:</label>
+    <input type="file" name="post[image]">
 
-  <label>Description</label>
-  <textarea name="post[content]" rows="4" cols="47"></textarea>
+    <label>Description</label>
+    <textarea name="post[content]" rows="4" cols="47"></textarea>
 
-  <input type="submit" value="Upload">
-</form>
+    <input type="submit" value="Upload">
+  </form>
+<% end %>
 
 <% @posts.each do |post| %>
   <p>
