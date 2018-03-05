@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   def index
     @posts = Post.eager_load(:user, :comments, :comments => :user)
     # @posts = Post.all
-
   end
 
   def show
