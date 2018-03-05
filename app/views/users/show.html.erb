@@ -27,15 +27,7 @@
 
   <% if post.comments %>
     <% post.comments.each do |comment| %>
-      <p>
-        <a href="<%= user_path comment.user %>">
-          <%= comment.user.name %>
-        </a> says:
-        <%= comment.content %>
-        <% if comment.user == current_user %>
-          <a href="<%= comment_path comment %>" data-method='delete'>Delete</a>
-        <% end %>
-      </p>
+      <%= render 'partials/comments.html.erb', comment: comment %>
     <% end %>
   <% end %>
 
