@@ -18,7 +18,7 @@ Features:
 ## Images
 
 Login Page
-![Login Page]('/app/assets/images/photogram_login.png')
+![Login Page](app/assets/images/photogram_login.png)
 
 Registration Page
 ![Registration Page]()
