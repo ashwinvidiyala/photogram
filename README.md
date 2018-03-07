@@ -14,3 +14,20 @@ Features:
 * Image Uploading
 * Comment functionality
 * Eager Loading to optimize queries.
+
+## Images
+
+Login Page
+![Login Page]('/app/assets/images/photogram_login.png')
+
+Registration Page
+![Registration Page]()
+
+Registration Page with Validation Errors
+![Registration Page with Validation Errors]()
+
+Homepage
+![Homepage]()
+
+User Page
+![User Page]()
