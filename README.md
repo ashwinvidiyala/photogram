@@ -2,9 +2,10 @@
 
 Photogram is an Instagram clone that has been built on Rails 5.
 
-## Features:
+## Features
 
 * Login and Registration Validation
+* Post and comment validation
 * Login Authorization
 * Logout
 * Keeps user logged in through sessions
@@ -13,7 +14,11 @@ Photogram is an Instagram clone that has been built on Rails 5.
 * Individual User Accounts
 * Image Uploading
 * Comment functionality
-* Eager Loading to optimize queries.
+* Eager Loading to optimize queries
+* Only first three comments shown for posts on homepage
+* Posts can only be added from user page
+* Each post shows the user that submitted it
+* Each comment shows the user that made the comment
 
 ## Images
 
@@ -30,4 +35,4 @@ Photogram is an Instagram clone that has been built on Rails 5.
 ![Homepage](app/assets/images/photogram_homepage.png "Homepage")
 
 ### User Page
-![User Page](app/assets/images/photogram_user.png "User Page")
+![User Page](app/assets/images/photogram_user_page.png "User Page")
