@@ -1,6 +1,6 @@
 <p><img src="<%= @post.image.url(:medium) %>"></p>
+<h4><%= @post.content %></h4>
 <p>
-  <%= @post.content %>
   <% if @post.user == current_user %>
     <a href="<%= post_path @post %>" data-method='delete'>Delete Post</a>
   <% end %>

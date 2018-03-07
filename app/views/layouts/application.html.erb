@@ -9,24 +9,14 @@
   </head>
 
   <body>
-
-    <% if current_user %>
-        <a href="<%= logout_path %>" data-method='delete'>Logout</a>
-        <a href="<%= users_path %>">Homepage</a>
-        <a href="<%= user_path current_user %>">Dashboard</a>
-      <% else %>
-        <a href="<%= login_path %>">Login</a>
-        <a href="<%= register_path %>">Register</a>
-      <% end %>
-
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 mx-md-auto text-center">
+          <%= render 'partials/navbar' %>
+          <%= render 'partials/errors' %>
+          <%= yield %>
+        </div>
+      </div>
     </div>
-
-    <%= yield %>
-
-    <% if flash[:errors] %>
-      <% flash[:errors].each do |error| %>
-        <p><%= error %></p>
-      <% end %>
-    <% end %>
   </body>
 </html>

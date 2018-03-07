@@ -33,6 +33,8 @@ gem 'hirb'
 gem "paperclip", "~> 5.2.1"
 gem 'rails-footnotes'
 
+gem 'jquery-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
