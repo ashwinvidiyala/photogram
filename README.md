@@ -29,7 +29,7 @@ Photogram is an Instagram clone that has been built on Rails 5.
 ![Registration Page](app/assets/images/photogram_register.png "Registration Page")
 
 ### Registration Page with Validation Errors
-![Registration Page](app/assets/images/photogram_register_error.png "Registration Page With Errors")
+![Registration Page With Errors](app/assets/images/photogram_register_error.png "Registration Page With Errors")
 
 ### Homepage
 ![Homepage](app/assets/images/photogram_homepage.png "Homepage")
