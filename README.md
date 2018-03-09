@@ -20,7 +20,7 @@ Photogram is an Instagram clone that has been built on Rails 5.
 * Each post shows the user that submitted it
 * Each comment shows the user that made the comment
 
-## Images
+## Screenshots
 
 ### Login Page
 ![Login Page](app/assets/images/photogram_login.png "Login Page")
