@@ -1,6 +1,7 @@
 # Photogram
 
 Photogram is an Instagram clone that has been built on Rails 5.
+The app is deployed over [here](https://glacial-plains-14125.herokuapp.com/ 'Photogram').
 
 ## Features
 
